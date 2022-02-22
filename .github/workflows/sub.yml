@@ -1,17 +1,20 @@
-name: sub
-
-on: [push]
+name: Context testing
+on: push
 
 jobs:
-  build:
+  dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: 1. 변수출력
-      env:
-        NAME: 'hojun.lee' 
-      run: echo "내 이름은  $NAME 입니다."
-    - name: 2. 변수출력
-      env:
-        ID: ${{ github.actor }} 
-      run: echo "내 이름은 $NAME, 내 아이디는 $ID 입니다."
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
