@@ -10,10 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/chekout@v2
       - name: hello world 출력!
         run: echo Hello, world!
-      - name: 디렉토리 
-        run: ls -al
+      - name: 파이썬 실행
+        run: python test.py
       - name: 파이썬 버전 출력!
         run: python -V
 
