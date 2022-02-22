@@ -21,7 +21,7 @@ jobs:
         git config --local user.email "rnlqls7454@naver.com"
         git config --local user.name "melody-story"
         git add .
-        git commit "ADD: Crawling"
+        git commit -m "ADD: Crawling"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
