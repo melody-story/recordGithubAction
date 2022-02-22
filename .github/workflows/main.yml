@@ -20,9 +20,6 @@ jobs:
       run: |
         git config --local user.email "rnlqls7454@naver.com"
         git config --local user.name "melody-story"
-        git pull origin main
-        git add .
-        git commit -m "Run crawler and update current data"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
